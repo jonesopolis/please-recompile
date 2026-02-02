@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
-import { getResumePage } from '../contentful';
 import SEO from './SEO';
 import Footer from './Footer';
 
 function DownloadIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
       <polyline points="7 10 12 15 17 10"/>
       <line x1="12" y1="15" x2="12" y2="3"/>
@@ -15,7 +13,7 @@ function DownloadIcon() {
 
 function EmailIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline points="22,6 12,13 2,6"/>
     </svg>
@@ -24,7 +22,7 @@ function EmailIcon() {
 
 function PhoneIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
     </svg>
   );
@@ -32,7 +30,7 @@ function PhoneIcon() {
 
 function LocationIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
       <circle cx="12" cy="10" r="3"/>
     </svg>
@@ -41,7 +39,7 @@ function LocationIcon() {
 
 function LinkedInIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
       <rect x="2" y="9" width="4" height="12"/>
       <circle cx="4" cy="4" r="2"/>
@@ -51,7 +49,7 @@ function LinkedInIcon() {
 
 function GlobeIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10"/>
       <line x1="2" y1="12" x2="22" y2="12"/>
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
@@ -59,157 +57,179 @@ function GlobeIcon() {
   );
 }
 
-function BriefcaseIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-    </svg>
-  );
-}
+const resume = {
+  fullName: 'David Rector',
+  title: 'Software Architect & Technical Leader',
+  location: 'Castle Rock, Colorado',
+  phone: '859-396-5280',
+  email: 'davidarector@gmail.com',
+  linkedinUrl: 'https://linkedin.com/in/davidrector',
+  websiteUrl: 'https://codeinspace.io',
+  pdfUrl: '/ATS_Resume.pdf',
 
-function CodeIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6"/>
-      <polyline points="8 6 2 12 8 18"/>
-    </svg>
-  );
-}
+  summary: 'Software Architect and Technical Leader with 14+ years architecting enterprise-scale .NET solutions in Azure cloud environments. Expert in microservices architecture, CI/CD automation, and leading cross-functional engineering teams. Proven track record delivering $1.9M+ revenue projects with measurable performance improvements, system scalability, and high availability.',
 
-function GraduationIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-    </svg>
-  );
-}
+  achievements: [
+    'Led $1.9M project portfolio (2023)',
+    '4x Microsoft Certified Developer',
+    'Architected solutions serving 500K+ concurrent users',
+    'Reduced system latency 90% (2000ms → <200ms)',
+    'Led engineering teams up to 8 developers'
+  ],
 
-function AwardIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="8" r="7"/>
-      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-    </svg>
-  );
-}
+  experience: [
+    {
+      title: 'Web Development Lead / Solutions Architect',
+      company: 'BlueModus',
+      dates: '2019–2021, 2023–Present',
+      location: 'Denver, CO',
+      bullets: [
+        'Architected enterprise CMS solutions for Mainfreight.com, RILA.org, ASBMB.org, and Truliant.org serving 500K+ concurrent users with 99.9% uptime using Azure App Services, Redis caching, and CDN optimization',
+        'Led technical evaluations and client onboarding for SEO-driven leads, presenting architecture proposals to C-level stakeholders resulting in $3.2M in multi-year contracts',
+        'Designed microservices architecture with Azure Functions reducing page load times 90% (2s → <200ms); implemented event-driven processing with Service Bus and asynchronous workflows',
+        'Established code review standards, technical documentation, and Architecture Decision Records (ADRs) across 12-person engineering team; mentored 8 junior developers reducing onboarding time by 40%'
+      ]
+    },
+    {
+      title: 'Team Lead & Technical Architect',
+      company: 'Caroogo.com',
+      dates: '2021–2023',
+      location: 'Louisville, KY',
+      bullets: [
+        'Led 5-person backend team architecting online car-buying platform processing 10K+ daily transactions with real-time inventory integration across 15+ third-party APIs (financing, shipping, DMV)',
+        'Designed event-driven microservices architecture using Azure Service Bus, Event Grid, and Functions; implemented OAuth 2.0/JWT authentication supporting 50K+ registered users',
+        'Balanced hands-on development (50%) with Scrum Master responsibilities running daily standups and sprint planning; maintained 85% sprint completion rate',
+        'Established CI/CD pipelines with Azure DevOps automating deployments and reducing release time by 60%; implemented Infrastructure as Code using ARM templates'
+      ]
+    },
+    {
+      title: 'Senior Software Engineer',
+      company: 'Kindred',
+      dates: '2017–2018',
+      location: 'Louisville, KY',
+      bullets: [
+        'Architected Azure-based patron management system for 20+ global casino properties handling 1M+ daily transactions with 99.95% availability',
+        'Migrated proof-of-concept to production-grade distributed system with horizontal scaling, implementing CQRS pattern and event sourcing',
+        'Established comprehensive testing strategy achieving 85% code coverage with 1,200+ automated tests; reduced production defects by 70%'
+      ]
+    },
+    {
+      title: 'Team Lead Developer',
+      company: 'Computer Services Inc.',
+      dates: '2015–2017',
+      location: 'Lexington, KY',
+      bullets: [
+        'Led development team managing full SDLC across enterprise projects; established agile practices and code quality standards'
+      ]
+    },
+    {
+      title: 'Software Developer',
+      company: 'Veridocs, Inc.',
+      dates: '2012–2015',
+      location: 'Lexington, KY',
+      bullets: [
+        'Developed casino patron management and identification solutions using C#, SQL Server, and WPF for Fortune 500 clients'
+      ]
+    }
+  ],
+
+  skills: [
+    {
+      category: 'Languages & Frameworks',
+      items: ['C#', '.NET Core/.NET 6/7/8', 'ASP.NET MVC', 'Entity Framework Core', 'Node.js', 'TypeScript', 'JavaScript', 'SignalR']
+    },
+    {
+      category: 'Cloud & DevOps',
+      items: ['Azure App Services', 'Azure Functions', 'Cosmos DB', 'Service Bus', 'Event Grid', 'Redis Cache', 'Key Vault', 'Application Insights', 'Entra/B2C', 'Azure DevOps', 'CI/CD Pipelines', 'ARM/Bicep', 'Docker']
+    },
+    {
+      category: 'Architecture & Design',
+      items: ['Microservices', 'RESTful APIs', 'Event-Driven Architecture', 'CQRS', 'SOLID Principles', 'Design Patterns', 'Domain-Driven Design', 'System Design']
+    },
+    {
+      category: 'Frontend',
+      items: ['Angular 12+', 'React 18+', 'Vue.js 3', 'HTML5', 'CSS3/SASS/LESS', 'Responsive Design', 'PWAs']
+    },
+    {
+      category: 'Data & Security',
+      items: ['SQL Server', 'Azure SQL', 'Cosmos DB', 'Redis', 'OAuth 2.0', 'JWT', 'Azure AD/Entra ID', 'RBAC', 'OWASP']
+    }
+  ],
+
+  education: 'University of Kentucky — B.S. Computer Science, May 2012',
+
+  certifications: [
+    'Microsoft Certified Developer – C#',
+    'Microsoft Certified Developer – Azure',
+    'Kentico Xperience 13 Developer',
+    'Xperience by Kentico Developer'
+  ]
+};
 
 export default function Resume() {
-  const [resume, setResume] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getResumePage()
-      .then(setResume)
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading || !resume) {
-    return (
-      <div className="container">
-        <section className="page-section">
-          <div className="skeleton-line skeleton-title"></div>
-          <div className="skeleton-line"></div>
-          <div className="skeleton-line"></div>
-        </section>
-      </div>
-    );
-  }
-
-  // Parse JSON fields
-  let experience = [];
-  let technicalSkills = [];
-  try {
-    experience = JSON.parse(resume.experience || '[]');
-  } catch (e) {
-    console.error('Error parsing experience:', e);
-  }
-  try {
-    technicalSkills = JSON.parse(resume.technicalSkills || '[]');
-  } catch (e) {
-    console.error('Error parsing technicalSkills:', e);
-  }
-
-  const achievements = resume.keyAchievements?.split('\n').filter(a => a.trim()) || [];
-  const certifications = resume.certifications?.split('\n').filter(c => c.trim()) || [];
-
   return (
     <>
       <SEO
-        title={resume.seoTitle}
-        description={resume.seoDescription}
+        title="resume | david rector"
+        description="Software Architect and Technical Leader with 14+ years architecting enterprise-scale .NET solutions in Azure cloud environments."
       />
       <div className="resume-page">
-        {/* Hero Header */}
-        <header className="resume-hero">
-          <div className="resume-hero-content">
-            <h1 className="resume-name">{resume.fullName}</h1>
-            <p className="resume-title">Software Architect & Technical Leader</p>
-
-            <div className="resume-contact-grid">
-              <a href={`mailto:${resume.email}`} className="resume-contact-item">
-                <EmailIcon />
-                <span>{resume.email}</span>
-              </a>
-              <a href={`tel:${resume.phone}`} className="resume-contact-item">
-                <PhoneIcon />
-                <span>{resume.phone}</span>
-              </a>
-              <span className="resume-contact-item">
-                <LocationIcon />
-                <span>{resume.location}</span>
-              </span>
-              <a href={resume.linkedinUrl} target="_blank" rel="noopener noreferrer" className="resume-contact-item">
-                <LinkedInIcon />
-                <span>LinkedIn</span>
-              </a>
-              <a href={resume.websiteUrl} target="_blank" rel="noopener noreferrer" className="resume-contact-item">
-                <GlobeIcon />
-                <span>Website</span>
-              </a>
+        {/* Header */}
+        <header className="resume-header-section">
+          <div className="container">
+            <div className="resume-header-content">
+              <div className="resume-header-main">
+                <h1 className="resume-name">{resume.fullName}</h1>
+                <p className="resume-title">{resume.title}</p>
+              </div>
+              <div className="resume-contact-row">
+                <a href={`mailto:${resume.email}`} className="resume-contact-item">
+                  <EmailIcon />{resume.email}
+                </a>
+                <a href={`tel:${resume.phone}`} className="resume-contact-item">
+                  <PhoneIcon />{resume.phone}
+                </a>
+                <span className="resume-contact-item">
+                  <LocationIcon />{resume.location}
+                </span>
+                <a href={resume.linkedinUrl} target="_blank" rel="noopener noreferrer" className="resume-contact-item">
+                  <LinkedInIcon />LinkedIn
+                </a>
+                <a href={resume.websiteUrl} target="_blank" rel="noopener noreferrer" className="resume-contact-item">
+                  <GlobeIcon />Portfolio
+                </a>
+                <a href={resume.pdfUrl} download className="resume-download-link">
+                  <DownloadIcon />PDF
+                </a>
+              </div>
             </div>
-
-            <a href={resume.pdfUrl} download className="resume-download-btn">
-              <DownloadIcon />
-              Download Resume PDF
-            </a>
           </div>
         </header>
 
         <div className="container">
-          {/* Professional Summary */}
-          <section className="resume-section resume-summary">
-            <p>{resume.professionalSummary}</p>
+          {/* Summary */}
+          <section className="resume-section">
+            <p className="resume-summary">{resume.summary}</p>
           </section>
 
           {/* Key Achievements */}
           <section className="resume-section">
-            <h2 className="resume-section-title">
-              <span className="resume-section-icon"><AwardIcon /></span>
-              Key Achievements
-            </h2>
+            <h2 className="resume-section-title">Key Achievements</h2>
             <div className="resume-achievements">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="resume-achievement-item">
-                  <span className="achievement-bullet"></span>
-                  <span>{achievement}</span>
-                </div>
+              {resume.achievements.map((item, i) => (
+                <span key={i} className="resume-achievement">{item}</span>
               ))}
             </div>
           </section>
 
           {/* Experience */}
           <section className="resume-section">
-            <h2 className="resume-section-title">
-              <span className="resume-section-icon"><BriefcaseIcon /></span>
-              Professional Experience
-            </h2>
-            <div className="resume-timeline">
-              {experience.map((job, index) => (
-                <div key={index} className="resume-job">
+            <h2 className="resume-section-title">Experience</h2>
+            <div className="resume-jobs">
+              {resume.experience.map((job, i) => (
+                <div key={i} className="resume-job">
                   <div className="resume-job-header">
-                    <div className="resume-job-main">
+                    <div>
                       <h3 className="resume-job-title">{job.title}</h3>
                       <span className="resume-job-company">{job.company}</span>
                     </div>
@@ -219,8 +239,8 @@ export default function Resume() {
                     </div>
                   </div>
                   <ul className="resume-job-bullets">
-                    {job.bullets?.map((bullet, bIndex) => (
-                      <li key={bIndex}>{bullet}</li>
+                    {job.bullets.map((bullet, j) => (
+                      <li key={j}>{bullet}</li>
                     ))}
                   </ul>
                 </div>
@@ -228,57 +248,31 @@ export default function Resume() {
             </div>
           </section>
 
-          {/* Technical Skills */}
+          {/* Skills */}
           <section className="resume-section">
-            <h2 className="resume-section-title">
-              <span className="resume-section-icon"><CodeIcon /></span>
-              Technical Skills
-            </h2>
-            <div className="resume-skills-grid">
-              {technicalSkills.map((category, index) => (
-                <div key={index} className="resume-skill-category">
-                  <h3 className="resume-skill-category-title">{category.category}</h3>
-                  <div className="resume-skill-tags">
-                    {category.skills?.map((skill, sIndex) => (
-                      <span key={sIndex} className="resume-skill-tag">{skill}</span>
-                    ))}
-                  </div>
+            <h2 className="resume-section-title">Technical Skills</h2>
+            <div className="resume-skills">
+              {resume.skills.map((cat, i) => (
+                <div key={i} className="resume-skill-row">
+                  <span className="resume-skill-category">{cat.category}:</span>
+                  <span className="resume-skill-items">{cat.items.join(', ')}</span>
                 </div>
               ))}
             </div>
           </section>
 
           {/* Education & Certifications */}
-          <div className="resume-two-column">
-            <section className="resume-section">
-              <h2 className="resume-section-title">
-                <span className="resume-section-icon"><GraduationIcon /></span>
-                Education
-              </h2>
-              <div className="resume-education">
-                <p>{resume.education}</p>
+          <section className="resume-section resume-footer-section">
+            <div className="resume-footer-grid">
+              <div>
+                <h2 className="resume-section-title">Education</h2>
+                <p className="resume-education">{resume.education}</p>
               </div>
-            </section>
-
-            <section className="resume-section">
-              <h2 className="resume-section-title">
-                <span className="resume-section-icon"><AwardIcon /></span>
-                Certifications
-              </h2>
-              <ul className="resume-certifications">
-                {certifications.map((cert, index) => (
-                  <li key={index}>{cert}</li>
-                ))}
-              </ul>
-            </section>
-          </div>
-
-          {/* Download CTA */}
-          <section className="resume-cta-section">
-            <a href={resume.pdfUrl} download className="resume-download-btn resume-download-btn--large">
-              <DownloadIcon />
-              Download Full Resume (PDF)
-            </a>
+              <div>
+                <h2 className="resume-section-title">Certifications</h2>
+                <p className="resume-certifications">{resume.certifications.join(' · ')}</p>
+              </div>
+            </div>
           </section>
         </div>
       </div>
