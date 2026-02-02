@@ -26,14 +26,7 @@ export default function ErrorPage({
             <div className="error-text">
               <span className="error-code">{code}</span>
               <h1 className="error-title">{title}</h1>
-              <p className="error-message">{message}</p>
-              <Link to="/" className="btn error-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="19" y1="12" x2="5" y2="12"/>
-                  <polyline points="12 19 5 12 12 5"/>
-                </svg>
-                Back to Home
-              </Link>
+              <p className="error-message" dangerouslySetInnerHTML={{ __html: message }} />
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ function HomePage() {
   return (
     <>
       <SEO
-        title="Please Recompile | A Developer's Journey"
+        title="Please Recompile"
         description="A blog about learning AI, machine learning, and the journey of a developer exploring artificial intelligence. Please recompile."
       />
       <main>
@@ -35,7 +35,7 @@ function NotFoundPage() {
     <ErrorPage
       code="404"
       title="Page Not Found"
-      message="The page you're looking for doesn't exist or has been moved."
+      message="The page you're looking for doesn't exist."
     />
   );
 }

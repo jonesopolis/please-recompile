@@ -167,25 +167,23 @@ const mockSiteSettings = {
   navContactLabel: 'Contact',
 
   // Post navigation
-  backToPostsText: 'Back to posts',
-  backToHomeText: '← Back to home',
-  relatedPostsTitle: 'Related Posts',
+  backToPostsText: 'Back',
+  relatedPostsTitle: 'Related',
 
   // 404 error page
   notFoundTitle: 'Page Not Found',
-  notFoundMessage: "The page you're looking for doesn't exist or has been moved.",
+  notFoundMessage: "The page you're looking for doesn't exist.",
 
   // 500 error page
   errorTitle: 'Something Went Wrong',
-  errorMessage: 'An unexpected error occurred. Please try refreshing the page.',
+  errorMessage: "An error occurred! Try going back <a href='/'>home</a>.",
   errorBackgroundText: 'oops',
-  errorButtonText: 'Back to Home',
 
   // Loading states
-  loadingText: 'Loading posts...',
+  loadingText: 'Loading...',
 
   // SEO defaults
-  defaultSiteTitle: "Please Recompile | A Developer's Journey",
+  defaultSiteTitle: 'Please Recompile',
   defaultSiteDescription: 'A blog about learning AI, machine learning, and the journey of a developer exploring artificial intelligence. Please recompile.',
 
   // Social links

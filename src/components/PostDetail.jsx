@@ -17,8 +17,7 @@ export default function PostDetail() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
   const [settings, setSettings] = useState({
-    backToPostsText: 'Back to posts',
-    backToHomeText: '← Back to home',
+    backToPostsText: 'Back',
     notFoundTitle: 'Post not found',
     notFoundMessage: "The post you're looking for doesn't exist.",
   });

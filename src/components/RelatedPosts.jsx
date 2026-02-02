@@ -24,7 +24,7 @@ export default function RelatedPosts({ currentSlug, tags }) {
   if (loading) {
     return (
       <section className="related-posts">
-        <h2>Related Posts</h2>
+        <h2>Related</h2>
         <div className="related-posts-grid">
           <div className="related-post-card skeleton">
             <div className="skeleton-line skeleton-title"></div>
@@ -45,7 +45,7 @@ export default function RelatedPosts({ currentSlug, tags }) {
 
   return (
     <section className="related-posts">
-      <h2>Related Posts</h2>
+      <h2>Related</h2>
       <div className="related-posts-grid">
         {posts.map((post) => (
           <Link key={post.slug} to={`/${post.slug}`} className="related-post-card">
