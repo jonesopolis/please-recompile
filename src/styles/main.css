@@ -482,7 +482,7 @@ header.header--scrolled {
 /* Sticky Title Bar */
 .sticky-title-bar {
     position: fixed;
-    top: 49px; /* Below compact header */
+    top: 73px; /* Below compact header (12px padding + 47.5px content + 12px padding + 1px border) */
     left: 0;
     right: 0;
     background-color: var(--bg-primary);
@@ -1074,7 +1074,7 @@ footer p {
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
     .sticky-title-bar {
-        top: 49px;
+        top: 73px; /* Same as desktop - header height doesn't change on mobile */
     }
 
     .sticky-title-content {
