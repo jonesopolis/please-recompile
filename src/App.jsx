@@ -51,6 +51,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/bit" element={<BitPage />} />
           <Route path="/:slug" element={<PostDetail />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </ErrorBoundary>
     </BrowserRouter>
