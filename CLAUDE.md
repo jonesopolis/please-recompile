@@ -140,11 +140,13 @@ Without credentials, the app uses mock data for development.
 ### blogPost
 - `title` (Short text, required)
 - `slug` (Short text, unique, required)
+- `hook` (Short text, max 100) - Short hook shown in post listing
 - `excerpt` (Long text, max 100) - Single line shown on post listing
 - `content` (Rich text)
 - `publishDate` (Date)
 - `tags` (Array of linked Tag entries)
-- `mainImage` (Asset, image) - Featured image for post
+- `mainImage` (Asset, image) - Featured image for OG/social sharing
+- `iconSvg` (Asset, image) - SVG icon displayed on post detail page (theme-aware)
 - `metaTitle` (Short text, max 60) - SEO title override
 - `metaDescription` (Short text, max 160) - SEO description override
 

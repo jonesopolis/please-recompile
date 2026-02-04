@@ -13,6 +13,30 @@ function formatDate(dateString) {
   return date.toISOString().split('T')[0].replace(/-/g, '.');
 }
 
+// Component to fetch and render SVG inline for theme support
+function InlineSvg({ url }) {
+  const [svgContent, setSvgContent] = useState(null);
+
+  useEffect(() => {
+    if (url) {
+      fetch(url)
+        .then((res) => res.text())
+        .then((text) => {
+          // Replace any hardcoded colors with currentColor for theme support
+          const themed = text
+            .replace(/fill="#[0-9a-fA-F]{3,6}"/g, 'fill="currentColor"')
+            .replace(/stroke="#[0-9a-fA-F]{3,6}"/g, 'stroke="currentColor"');
+          setSvgContent(themed);
+        })
+        .catch(() => setSvgContent(null));
+    }
+  }, [url]);
+
+  if (!svgContent) return null;
+
+  return <div dangerouslySetInnerHTML={{ __html: svgContent }} />;
+}
+
 export default function PostDetail() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
@@ -116,14 +140,9 @@ export default function PostDetail() {
             {settings.backToPostsText}
           </Link>
 
-          {post.mainImage ? (
-            <div className="post-detail-image">
-              <div
-                className="post-main-image"
-                style={{ '--main-image-url': `url(${post.mainImage})` }}
-                role="img"
-                aria-label={post.title}
-              />
+          {post.iconSvg ? (
+            <div className="post-detail-icon">
+              <InlineSvg url={post.iconSvg} />
             </div>
           ) : (
             (() => {
