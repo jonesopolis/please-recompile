@@ -87,9 +87,9 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { path: '/', label: 'Blog' },
-    { path: '/resume', label: 'Resume' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/', label: settings.navBlogLabel || 'Blog' },
+    { path: '/resume', label: settings.navResumeLabel || 'Resume' },
+    { path: '/contact', label: settings.navContactLabel || 'Contact' },
   ];
 
   return (

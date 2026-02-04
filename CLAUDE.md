@@ -145,15 +145,19 @@ Without credentials, the app uses mock data for development.
 - `slug` (Short text, required, unique)
 
 ### siteSettings
-Global settings including hero, contact page, and footer content (consolidated from separate content types).
+Global settings including hero, contact page, footer, navigation, and Bit page content.
 
 **Core Settings:**
 - `logoText` (Short text, required) - Header logo text
 - `heroBadgeText` (Short text) - Badge text in hero section
 - `backToPostsText` (Short text) - "Back to posts" link text
-- `backToHomeText` (Short text) - "Back to home" button text
 - `loadingText` (Short text) - Loading state text
 - `relatedPostsTitle` (Short text) - Related posts section title
+
+**Navigation:**
+- `navBlogLabel` (Short text) - Blog nav link label
+- `navResumeLabel` (Short text) - Resume nav link label
+- `navContactLabel` (Short text) - Contact nav link label
 
 **Hero Section:**
 - `heroTitle` (Short text) - Main heading on home page
@@ -165,6 +169,10 @@ Global settings including hero, contact page, and footer content (consolidated f
 - `contactSeoTitle` (Short text, max 60) - SEO title
 - `contactIntroText` (Long text) - Introduction paragraph
 
+**Bit Page:**
+- `bitPageTitle` (Short text) - Bit mascot page title
+- `bitPageDescription` (Long text) - Bit mascot page description
+
 **Footer:**
 - `footerCopyright` (Short text) - Copyright text
 
@@ -172,24 +180,10 @@ Global settings including hero, contact page, and footer content (consolidated f
 - `contactEmail` (Short text) - Contact email address
 - `githubUrl` (Short text) - GitHub profile URL
 - `linkedinUrl` (Short text) - LinkedIn profile URL
-- `twitterUrl` (Short text) - Twitter profile URL
-
-**SEO Defaults:**
-- `defaultSiteTitle` (Short text, max 60) - Default SEO title
-- `defaultSiteDescription` (Long text, max 160) - Default SEO description
 
 **Error Pages:**
 - `notFoundTitle` (Short text) - 404 page title
 - `notFoundMessage` (Long text) - 404 page message
-- `errorTitle` (Short text) - 500 error title
-- `errorMessage` (Long text) - 500 error message
-- `errorBackgroundText` (Short text) - Background text for error page
-- `errorButtonText` (Short text) - Error page button text
-
-**Navigation:**
-- `navBlogLabel` (Short text) - Blog nav link label
-- `navResumeLabel` (Short text) - Resume nav link label
-- `navContactLabel` (Short text) - Contact nav link label
 
 ### resume
 - `fullName` (Short text, required) - Full name displayed in header

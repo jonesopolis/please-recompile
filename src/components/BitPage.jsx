@@ -1,8 +1,18 @@
+import { useEffect, useState } from 'react';
+import { getSiteSettings } from '../contentful';
 import Robot from './Robot';
 import SEO from './SEO';
 import Footer from './Footer';
 
 export default function BitPage() {
+  const [settings, setSettings] = useState({
+    bitPageTitle: 'Meet Bit',
+    bitPageDescription: 'Bit is the friendly robot mascot of Learning AI. With 16 emotions and poses, Bit helps express the journey of learning. Hover over any robot to see it animate.'
+  });
+
+  useEffect(() => {
+    getSiteSettings().then(setSettings);
+  }, []);
   const emotions = [
     'neutral',
     'happy',
@@ -25,8 +35,8 @@ export default function BitPage() {
   return (
     <>
       <SEO
-        title="Meet Bit | Please Recompile"
-        description="Bit is a friendly robot mascot with 16 emotions and poses. Hover to see each animation."
+        title={`${settings.bitPageTitle} | Please Recompile`}
+        description={settings.bitPageDescription}
       />
       <main className="bit-page">
         <div className="container" style={{ paddingTop: '40px', paddingBottom: '80px' }}>
@@ -34,10 +44,9 @@ export default function BitPage() {
             <div style={{ marginBottom: '16px' }}>
               <Robot emotion="waving" size={120} />
             </div>
-            <h1 style={{ marginBottom: '8px' }}>Meet Bit</h1>
+            <h1 style={{ marginBottom: '8px' }}>{settings.bitPageTitle}</h1>
             <p style={{ color: 'var(--text-secondary)', maxWidth: '500px', margin: '0 auto' }}>
-              Bit is the friendly robot mascot of Learning AI. With 16 emotions and poses,
-              Bit helps express the journey of learning. Hover over any robot to see it animate.
+              {settings.bitPageDescription}
             </p>
           </div>
 
