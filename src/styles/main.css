@@ -1348,14 +1348,8 @@ html.theme-transitioning .post-detail-header * {
 }
 
 /* Draft detail page */
-.draft-back-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
-}
-
 .draft-indicator {
+    display: inline-block;
     font-size: 10px;
     padding: 4px 10px;
     background: #f59e0b;
@@ -1364,6 +1358,14 @@ html.theme-transitioning .post-detail-header * {
     letter-spacing: 0.5px;
     border-radius: 12px;
     font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.draft-hook {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-style: italic;
 }
 
 .sticky-draft-badge {
