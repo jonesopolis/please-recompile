@@ -130,13 +130,6 @@ Without credentials, the app uses mock data for development.
 
 ## Contentful Content Model
 
-### heroSection
-- `title` (Short text, required) - Main heading
-- `subtitle` (Long text) - Description
-- `siteTitle` (Short text, max 60) - SEO site title
-- `siteDescription` (Short text, max 160) - SEO description
-- `socialImage` (Asset, image) - OG/social share image
-
 ### blogPost
 - `title` (Short text, required)
 - `slug` (Short text, unique, required)
@@ -151,26 +144,54 @@ Without credentials, the app uses mock data for development.
 - `name` (Short text, required, unique)
 - `slug` (Short text, required, unique)
 
-### footer
-- `copyright` (Short text)
-- `tagline` (Short text)
-
 ### siteSettings
+Global settings including hero, contact page, and footer content (consolidated from separate content types).
+
+**Core Settings:**
 - `logoText` (Short text, required) - Header logo text
 - `heroBadgeText` (Short text) - Badge text in hero section
 - `backToPostsText` (Short text) - "Back to posts" link text
 - `backToHomeText` (Short text) - "Back to home" button text
-- `notFoundTitle` (Short text) - 404 page title
-- `notFoundMessage` (Long text) - 404 page message
 - `loadingText` (Short text) - Loading state text
-- `defaultSiteTitle` (Short text, max 60) - Default SEO title
-- `defaultSiteDescription` (Long text, max 160) - Default SEO description
+- `relatedPostsTitle` (Short text) - Related posts section title
+
+**Hero Section:**
+- `heroTitle` (Short text) - Main heading on home page
+- `heroSubtitle` (Long text) - Description on home page
+
+**Contact Page:**
+- `contactPageTitle` (Short text) - Page heading
+- `contactPageSubtitle` (Short text) - Page subtitle
+- `contactSeoTitle` (Short text, max 60) - SEO title
+- `contactIntroText` (Long text) - Introduction paragraph
+
+**Footer:**
+- `footerCopyright` (Short text) - Copyright text
+
+**Social/Contact:**
 - `contactEmail` (Short text) - Contact email address
 - `githubUrl` (Short text) - GitHub profile URL
 - `linkedinUrl` (Short text) - LinkedIn profile URL
 - `twitterUrl` (Short text) - Twitter profile URL
 
-### resumePage
+**SEO Defaults:**
+- `defaultSiteTitle` (Short text, max 60) - Default SEO title
+- `defaultSiteDescription` (Long text, max 160) - Default SEO description
+
+**Error Pages:**
+- `notFoundTitle` (Short text) - 404 page title
+- `notFoundMessage` (Long text) - 404 page message
+- `errorTitle` (Short text) - 500 error title
+- `errorMessage` (Long text) - 500 error message
+- `errorBackgroundText` (Short text) - Background text for error page
+- `errorButtonText` (Short text) - Error page button text
+
+**Navigation:**
+- `navBlogLabel` (Short text) - Blog nav link label
+- `navResumeLabel` (Short text) - Resume nav link label
+- `navContactLabel` (Short text) - Contact nav link label
+
+### resume
 - `fullName` (Short text, required) - Full name displayed in header
 - `location` (Short text) - City, State
 - `phone` (Short text) - Phone number
@@ -186,13 +207,6 @@ Without credentials, the app uses mock data for development.
 - `pdfUrl` (Short text) - URL to downloadable PDF resume
 - `seoTitle` (Short text, max 60) - SEO title
 - `seoDescription` (Short text, max 160) - SEO description
-
-### contactPage
-- `pageTitle` (Short text, required) - Page heading
-- `pageSubtitle` (Short text) - Page subtitle
-- `seoTitle` (Short text, max 60) - SEO title
-- `seoDescription` (Short text, max 160) - SEO description
-- `introText` (Long text) - Introduction paragraph
 
 ## Routes
 

@@ -106,10 +106,15 @@ const contactPageFallback = {
 // API functions
 export async function getHero() {
   try {
-    const data = await fetchContentful('/entries?content_type=heroSection&limit=1');
+    // Hero data is now in siteSettings
+    const data = await fetchContentful('/entries?content_type=siteSettings&limit=1');
     if (data.items?.length > 0) {
       const resolved = resolveLinks(data.items, data.includes);
-      return resolved[0];
+      const settings = resolved[0];
+      return {
+        title: settings.heroTitle,
+        subtitle: settings.heroSubtitle,
+      };
     }
     return heroFallback;
   } catch (error) {
@@ -147,10 +152,15 @@ export async function getPostBySlug(slug) {
 
 export async function getFooter() {
   try {
-    const data = await fetchContentful('/entries?content_type=footer&limit=1');
+    // Footer data is now in siteSettings
+    const data = await fetchContentful('/entries?content_type=siteSettings&limit=1');
     if (data.items?.length > 0) {
       const resolved = resolveLinks(data.items, data.includes);
-      return resolved[0];
+      const settings = resolved[0];
+      return {
+        copyright: settings.footerCopyright || footerFallback.copyright,
+        tagline: footerFallback.tagline,
+      };
     }
     return footerFallback;
   } catch (error) {
@@ -175,10 +185,17 @@ export async function getSiteSettings() {
 
 export async function getContactPage() {
   try {
-    const data = await fetchContentful('/entries?content_type=contactPage&limit=1');
+    // Contact page data is now in siteSettings
+    const data = await fetchContentful('/entries?content_type=siteSettings&limit=1');
     if (data.items?.length > 0) {
       const resolved = resolveLinks(data.items, data.includes);
-      return resolved[0];
+      const settings = resolved[0];
+      return {
+        pageTitle: settings.contactPageTitle,
+        pageSubtitle: settings.contactPageSubtitle,
+        seoTitle: settings.contactSeoTitle,
+        introText: settings.contactIntroText,
+      };
     }
     return contactPageFallback;
   } catch (error) {
@@ -208,7 +225,17 @@ export async function getRelatedPosts(currentSlug, tags, limit = 2) {
   }
 }
 
-// Resume page isn't in Contentful - it's hardcoded in Resume.jsx
+// Resume page data
 export async function getResumePage() {
-  return null;
+  try {
+    const data = await fetchContentful('/entries?content_type=resume&limit=1');
+    if (data.items?.length > 0) {
+      const resolved = resolveLinks(data.items, data.includes);
+      return resolved[0];
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching resume page:', error);
+    return null;
+  }
 }
