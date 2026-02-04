@@ -2236,386 +2236,40 @@ html.dark-mode .error-oops {
     transition: all 0.2s ease;
 }
 
-/* Layout 1: Hook only */
-.layout-1 {
-    gap: 8px;
+/* ========== TIMELINE LAYOUT 1: Classic - dot left, content right ========== */
+.timeline-1 {
+    padding-left: 24px;
 }
 
-.iterate-post-1 {
-    padding: 12px 16px;
-    border-radius: 4px;
-}
-
-.iterate-post-1:hover {
-    background: var(--bg-secondary);
-}
-
-.iterate-post-1 .hook {
-    color: var(--text-primary);
-    font-size: 15px;
-}
-
-.iterate-post-1:hover .hook {
-    color: var(--accent);
-}
-
-/* Layout 2: Hook + Title inline */
-.layout-2 {
-    gap: 4px;
-}
-
-.iterate-post-2 {
+.timeline-post-1 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    padding: 12px 16px;
-    border-radius: 4px;
-    align-items: baseline;
-}
-
-.iterate-post-2:hover {
-    background: var(--bg-secondary);
-}
-
-.iterate-post-2 .hook {
-    color: var(--text-secondary);
-    font-size: 13px;
-}
-
-.iterate-post-2 .title {
-    color: var(--text-primary);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.iterate-post-2:hover .hook,
-.iterate-post-2:hover .title {
-    color: var(--accent);
-}
-
-/* Layout 3: Date + Hook */
-.layout-3 {
-    gap: 0;
-}
-
-.iterate-post-3 {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 24px;
-    padding: 10px 12px;
-    margin: 0 -12px;
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-}
-
-.iterate-post-3::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, var(--bg-secondary) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-}
-
-.iterate-post-3:hover::before {
-    opacity: 1;
-}
-
-.iterate-post-3 .date {
-    color: var(--text-secondary);
-    font-size: 12px;
-}
-
-.iterate-post-3 .hook {
-    color: var(--text-primary);
-    font-size: 14px;
-}
-
-.iterate-post-3:hover .date {
-    transform: translateX(-6px);
-    color: var(--accent);
-}
-
-.iterate-post-3:hover .hook {
-    color: var(--accent);
-    transform: translateX(10px);
-}
-
-.iterate-post-3 .date,
-.iterate-post-3 .hook {
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-/* Layout 4: Hook above title (stacked) */
-.layout-4 {
-    gap: 16px;
-}
-
-.iterate-post-4 {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 16px;
-    border-left: 2px solid transparent;
-    transition: all 0.2s ease;
-}
-
-.iterate-post-4:hover {
-    border-left-color: var(--accent);
-    padding-left: 20px;
-}
-
-.iterate-post-4 .hook {
-    color: var(--text-secondary);
-    font-size: 13px;
-    font-style: italic;
-}
-
-.iterate-post-4 .title {
-    color: var(--text-primary);
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.iterate-post-4:hover .hook,
-.iterate-post-4:hover .title {
-    color: var(--accent);
-}
-
-/* Layout 5: Cards */
-.layout-5 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-}
-
-.iterate-post-5 {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 20px;
-    border: 1px solid var(--border);
-    background: var(--bg-secondary);
-    transition: all 0.2s ease;
-}
-
-.iterate-post-5:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-}
-
-.iterate-post-5 .hook {
-    color: var(--text-secondary);
-    font-size: 13px;
-}
-
-.iterate-post-5 .title {
-    color: var(--text-primary);
-    font-size: 15px;
-    font-weight: 600;
-    flex: 1;
-}
-
-.iterate-post-5 .date {
-    color: var(--text-secondary);
-    font-size: 11px;
-    margin-top: auto;
-}
-
-.iterate-post-5:hover .hook,
-.iterate-post-5:hover .title {
-    color: var(--accent);
-}
-
-/* Layout 6: Pull quote style */
-.layout-6 {
-    gap: 24px;
-}
-
-.iterate-post-6 {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 24px;
-    background: var(--bg-secondary);
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
-
-.iterate-post-6:hover {
-    background: var(--bg-tertiary);
-}
-
-.iterate-post-6 .hook {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text-primary);
-    line-height: 1.4;
-}
-
-.iterate-post-6 .meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.iterate-post-6 .title {
-    color: var(--text-secondary);
-    font-size: 12px;
-}
-
-.iterate-post-6 .date {
-    color: var(--text-secondary);
-    font-size: 11px;
-}
-
-.iterate-post-6:hover .hook {
-    color: var(--accent);
-}
-
-/* Layout 7: Hook with arrow */
-.layout-7 {
-    gap: 0;
-}
-
-.iterate-post-7 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.iterate-post-7:first-child {
-    border-top: 1px solid var(--border);
-}
-
-.iterate-post-7 .hook {
-    color: var(--text-primary);
-    font-size: 14px;
-}
-
-.iterate-post-7 .arrow {
-    color: var(--text-secondary);
-    font-size: 16px;
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.iterate-post-7:hover .hook {
-    color: var(--accent);
-}
-
-.iterate-post-7:hover .arrow {
-    color: var(--accent);
-    transform: translateX(4px);
-}
-
-/* Layout 8: Two column grid */
-.layout-8 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-.iterate-post-8 {
-    padding: 16px;
-    border: 1px solid var(--border);
-    text-align: center;
-    transition: all 0.2s ease;
-}
-
-.iterate-post-8:hover {
-    border-color: var(--accent);
-    background: var(--bg-secondary);
-}
-
-.iterate-post-8 .hook {
-    color: var(--text-primary);
-    font-size: 13px;
-}
-
-.iterate-post-8:hover .hook {
-    color: var(--accent);
-}
-
-/* Layout 9: Vertical timeline with month breaks */
-.layout-9 {
-    gap: 0;
-    padding-left: 100px;
-    position: relative;
-}
-
-.layout-9 .timeline-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.layout-9 .month-break {
-    padding: 24px 0 12px;
-    margin-left: -100px;
-}
-
-.layout-9 .timeline-item:first-child .month-break {
-    padding-top: 0;
-}
-
-.layout-9 .month-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: lowercase;
-    letter-spacing: 1px;
-    color: var(--text-secondary);
-    padding-left: 100px;
-}
-
-.iterate-post-9 {
-    display: grid;
-    grid-template-columns: 80px 20px 1fr;
-    gap: 0;
-    padding: 8px 0;
-    margin-left: -100px;
+    grid-template-columns: 20px 1fr;
+    padding: 12px 0;
     align-items: start;
 }
 
-.iterate-post-9 .date {
-    color: var(--text-secondary);
-    font-size: 11px;
-    text-align: right;
-    padding-right: 16px;
-    padding-top: 2px;
-}
-
-.iterate-post-9 .line {
+.timeline-post-1 .line {
     position: relative;
     display: flex;
     justify-content: center;
-    min-height: 100%;
 }
 
-/* Vertical connecting line */
-.iterate-post-9 .line::before {
+.timeline-post-1 .line::before {
     content: '';
     position: absolute;
     left: 50%;
     top: 0;
-    bottom: -8px;
+    bottom: -24px;
     width: 1px;
     background: var(--border);
     transform: translateX(-50%);
 }
 
-/* Hide line extension on last item */
-.iterate-post-9.last .line::before {
-    bottom: 6px;
+.timeline-post-1.last .line::before {
+    bottom: 8px;
 }
 
-/* The dot */
-.iterate-post-9 .line::after {
+.timeline-post-1 .line::after {
     content: '';
     width: 8px;
     height: 8px;
@@ -2628,59 +2282,756 @@ html.dark-mode .error-oops {
     transition: all 0.2s ease;
 }
 
-.iterate-post-9:hover .line::after {
+.timeline-post-1:hover .line::after {
     border-color: var(--accent);
     background: var(--accent);
 }
 
-.iterate-post-9:hover .line::before {
-    background: var(--accent);
-}
-
-.iterate-post-9 .content {
+.timeline-post-1 .content {
     display: flex;
     flex-direction: column;
     gap: 2px;
     padding-left: 16px;
 }
 
-.iterate-post-9 .hook {
+.timeline-post-1 .hook {
     color: var(--text-secondary);
     font-size: 12px;
 }
 
-.iterate-post-9 .title {
+.timeline-post-1 .title {
     color: var(--text-primary);
     font-size: 15px;
     font-weight: 500;
 }
 
-.iterate-post-9:hover .hook,
-.iterate-post-9:hover .title {
+.timeline-post-1 .date {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.timeline-post-1:hover .hook,
+.timeline-post-1:hover .title {
     color: var(--accent);
 }
 
-.iterate-post-9:hover .date {
+/* ========== TIMELINE LAYOUT 2: Date left, content right ========== */
+.timeline-2 {
+    padding-left: 100px;
+}
+
+.timeline-post-2 {
+    display: grid;
+    grid-template-columns: 80px 20px 1fr;
+    padding: 8px 0;
+    margin-left: -100px;
+    align-items: start;
+}
+
+.timeline-post-2 .date {
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-align: right;
+    padding-right: 16px;
+    padding-top: 2px;
+}
+
+.timeline-post-2 .line {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-post-2 .line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: -16px;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+}
+
+.timeline-post-2.last .line::before {
+    bottom: 6px;
+}
+
+.timeline-post-2 .line::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease;
+}
+
+.timeline-post-2:hover .line::after {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+.timeline-post-2 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 16px;
+}
+
+.timeline-post-2 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-2 .title {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.timeline-post-2:hover .hook,
+.timeline-post-2:hover .title,
+.timeline-post-2:hover .date {
     color: var(--accent);
 }
 
-.iterate-post-9:hover .date {
+/* ========== TIMELINE LAYOUT 3: With month breaks ========== */
+.timeline-3 {
+    padding-left: 100px;
+}
+
+.timeline-3 .timeline-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-3 .month-break {
+    padding: 24px 0 12px;
+    margin-left: -100px;
+}
+
+.timeline-3 .timeline-item:first-child .month-break {
+    padding-top: 0;
+}
+
+.timeline-3 .month-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    padding-left: 100px;
+}
+
+.timeline-post-3 {
+    display: grid;
+    grid-template-columns: 80px 20px 1fr;
+    padding: 8px 0;
+    margin-left: -100px;
+    align-items: start;
+}
+
+.timeline-post-3 .date {
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-align: right;
+    padding-right: 16px;
+    padding-top: 2px;
+}
+
+.timeline-post-3 .line {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-post-3 .line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: -16px;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+}
+
+.timeline-post-3.last .line::before {
+    bottom: 6px;
+}
+
+.timeline-post-3 .line::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease;
+}
+
+.timeline-post-3:hover .line::after {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+.timeline-post-3 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 16px;
+}
+
+.timeline-post-3 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-3 .title {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.timeline-post-3:hover .hook,
+.timeline-post-3:hover .title,
+.timeline-post-3:hover .date {
     color: var(--accent);
 }
 
-/* Responsive iterate page */
+/* ========== TIMELINE LAYOUT 4: Alternating sides ========== */
+.timeline-4 {
+    position: relative;
+    padding: 0 50%;
+}
+
+.timeline-4::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+}
+
+.timeline-post-4 {
+    display: grid;
+    grid-template-columns: 1fr 20px 80px;
+    padding: 12px 0;
+    margin-left: -100%;
+    width: 200%;
+    align-items: start;
+}
+
+.timeline-post-4.right {
+    grid-template-columns: 80px 20px 1fr;
+}
+
+.timeline-post-4.right .content {
+    order: 3;
+    text-align: left;
+    padding-left: 16px;
+    padding-right: 0;
+}
+
+.timeline-post-4.right .date {
+    order: 1;
+    text-align: right;
+    padding-right: 16px;
+    padding-left: 0;
+}
+
+.timeline-post-4 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: right;
+    padding-right: 16px;
+}
+
+.timeline-post-4 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-4 .title {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.timeline-post-4 .line {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    order: 2;
+}
+
+.timeline-post-4 .line::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease;
+}
+
+.timeline-post-4:hover .line::after {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+.timeline-post-4 .date {
+    color: var(--text-secondary);
+    font-size: 11px;
+    padding-left: 16px;
+    padding-top: 4px;
+}
+
+.timeline-post-4:hover .hook,
+.timeline-post-4:hover .title,
+.timeline-post-4:hover .date {
+    color: var(--accent);
+}
+
+/* ========== TIMELINE LAYOUT 5: Minimal, large hook ========== */
+.timeline-5 {
+    padding-left: 32px;
+}
+
+.timeline-post-5 {
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    padding: 16px 0;
+    gap: 20px;
+    align-items: start;
+}
+
+.timeline-post-5 .line {
+    position: relative;
+    width: 4px;
+    min-height: 100%;
+}
+
+.timeline-post-5 .line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: -32px;
+    width: 2px;
+    background: var(--border);
+    transition: background 0.2s ease;
+}
+
+.timeline-post-5.last .line::before {
+    bottom: 0;
+}
+
+.timeline-post-5:hover .line::before {
+    background: var(--accent);
+}
+
+.timeline-post-5 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeline-post-5 .hook {
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.timeline-post-5 .meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.timeline-post-5 .title {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.timeline-post-5 .date {
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+.timeline-post-5:hover .hook {
+    color: var(--accent);
+}
+
+/* ========== TIMELINE LAYOUT 6: Bracketed entries ========== */
+.timeline-6 {
+    padding-left: 24px;
+}
+
+.timeline-post-6 {
+    display: grid;
+    grid-template-columns: 16px 8px 1fr 16px;
+    padding: 10px 0;
+    align-items: start;
+    gap: 4px;
+}
+
+.timeline-post-6 .bracket {
+    color: var(--border);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.timeline-post-6:hover .bracket {
+    color: var(--accent);
+}
+
+.timeline-post-6 .line {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-post-6 .line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: -20px;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+}
+
+.timeline-post-6.last .line::before {
+    bottom: 0;
+}
+
+.timeline-post-6 .line::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--border);
+    margin-top: 6px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.2s ease;
+}
+
+.timeline-post-6:hover .line::after {
+    background: var(--accent);
+}
+
+.timeline-post-6 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 8px;
+}
+
+.timeline-post-6 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-6 .title {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.timeline-post-6:hover .hook,
+.timeline-post-6:hover .title {
+    color: var(--accent);
+}
+
+/* ========== TIMELINE LAYOUT 7: Arrow connectors ========== */
+.timeline-7 {
+    padding-left: 32px;
+}
+
+.timeline-post-7 {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    padding: 14px 0;
+    align-items: start;
+}
+
+.timeline-post-7 .arrow-line {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 4px;
+}
+
+.timeline-post-7 .arrow-line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: -28px;
+    width: 1px;
+    background: var(--border);
+    transform: translateX(-50%);
+}
+
+.timeline-post-7.last .arrow-line::before {
+    bottom: 0;
+}
+
+.timeline-post-7 .arrow-line::after {
+    content: '→';
+    font-size: 14px;
+    color: var(--border);
+    position: relative;
+    z-index: 1;
+    background: var(--bg-primary);
+    transition: color 0.2s ease;
+}
+
+.timeline-post-7:hover .arrow-line::after {
+    color: var(--accent);
+}
+
+.timeline-post-7 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 12px;
+}
+
+.timeline-post-7 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-7 .title {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.timeline-post-7:hover .hook,
+.timeline-post-7:hover .title {
+    color: var(--accent);
+}
+
+/* ========== TIMELINE LAYOUT 8: Indented hierarchy ========== */
+.timeline-8 {
+    gap: 0;
+}
+
+.timeline-8 .timeline-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-8 .month-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 20px 0 8px;
+    text-transform: lowercase;
+}
+
+.timeline-8 .timeline-item:first-child .month-header {
+    padding-top: 0;
+}
+
+.timeline-post-8 {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    padding: 8px 0;
+    padding-left: 16px;
+    align-items: start;
+}
+
+.timeline-post-8 .indent-line {
+    position: relative;
+}
+
+.timeline-post-8 .indent-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 12px;
+    height: 1px;
+    background: var(--border);
+    transition: background 0.2s ease, width 0.2s ease;
+}
+
+.timeline-post-8:hover .indent-line::before {
+    background: var(--accent);
+    width: 16px;
+}
+
+.timeline-post-8 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.timeline-post-8 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-8 .title {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.timeline-post-8:hover .hook,
+.timeline-post-8:hover .title {
+    color: var(--accent);
+}
+
+/* ========== TIMELINE LAYOUT 9: Double rail ========== */
+.timeline-9 {
+    padding-left: 32px;
+}
+
+.timeline-post-9 {
+    display: grid;
+    grid-template-columns: 12px 1fr;
+    padding: 14px 0;
+    align-items: start;
+    gap: 16px;
+}
+
+.timeline-post-9 .rails {
+    position: relative;
+    height: 100%;
+    min-height: 40px;
+}
+
+.timeline-post-9 .rails::before,
+.timeline-post-9 .rails::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -28px;
+    width: 2px;
+    background: var(--border);
+    transition: background 0.2s ease;
+}
+
+.timeline-post-9 .rails::before {
+    left: 0;
+}
+
+.timeline-post-9 .rails::after {
+    right: 0;
+}
+
+.timeline-post-9.last .rails::before,
+.timeline-post-9.last .rails::after {
+    bottom: 0;
+}
+
+.timeline-post-9:hover .rails::before,
+.timeline-post-9:hover .rails::after {
+    background: var(--accent);
+}
+
+.timeline-post-9 .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.timeline-post-9 .hook {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.timeline-post-9 .title {
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.timeline-post-9 .date {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.timeline-post-9:hover .hook,
+.timeline-post-9:hover .title {
+    color: var(--accent);
+}
+
+/* ========== Responsive timeline layouts ========== */
 @media (max-width: 768px) {
-    .iterate-post-2 {
-        grid-template-columns: 1fr;
-        gap: 4px;
+    .timeline-2,
+    .timeline-3 {
+        padding-left: 24px;
     }
 
-    .layout-5 {
-        grid-template-columns: 1fr;
+    .timeline-post-2,
+    .timeline-post-3 {
+        grid-template-columns: 20px 1fr;
+        margin-left: 0;
     }
 
-    .layout-8 {
-        grid-template-columns: 1fr;
+    .timeline-post-2 .date,
+    .timeline-post-3 .date {
+        display: none;
+    }
+
+    .timeline-4 {
+        padding: 0;
+        padding-left: 24px;
+    }
+
+    .timeline-4::before {
+        left: 12px;
+    }
+
+    .timeline-post-4,
+    .timeline-post-4.right {
+        grid-template-columns: 20px 1fr;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .timeline-post-4 .content,
+    .timeline-post-4.right .content {
+        order: 2;
+        text-align: left;
+        padding-left: 16px;
+        padding-right: 0;
+    }
+
+    .timeline-post-4 .line {
+        order: 1;
+    }
+
+    .timeline-post-4 .date,
+    .timeline-post-4.right .date {
+        display: none;
     }
 }
 

@@ -9,101 +9,22 @@ function formatDate(dateString) {
   return date.toISOString().split('T')[0].replace(/-/g, '.');
 }
 
-// Layout 1: Hook only (minimal)
+function getMonthYear(dateString) {
+  const date = new Date(dateString);
+  return `${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`.toLowerCase();
+}
+
+// Layout 1: Classic timeline - dot on left, content right
 function Layout1({ posts }) {
   return (
     <div className="iterate-layout">
-      <h3 className="iterate-layout-title">1. hook only</h3>
-      <div className="iterate-posts layout-1">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-1">
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Layout 2: Hook + Title
-function Layout2({ posts }) {
-  return (
-    <div className="iterate-layout">
-      <h3 className="iterate-layout-title">2. hook + title</h3>
-      <div className="iterate-posts layout-2">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-2">
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-            <span className="title">{post.title}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Layout 3: Date + Hook
-function Layout3({ posts }) {
-  return (
-    <div className="iterate-layout">
-      <h3 className="iterate-layout-title">3. date + hook</h3>
-      <div className="iterate-posts layout-3">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-3">
-            <span className="date">{formatDate(post.publishDate)}</span>
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Layout 4: Hook above title (stacked)
-function Layout4({ posts }) {
-  return (
-    <div className="iterate-layout">
-      <h3 className="iterate-layout-title">4. hook above title</h3>
-      <div className="iterate-posts layout-4">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-4">
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-            <span className="title">{post.title}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Layout 5: Cards with hook
-function Layout5({ posts }) {
-  return (
-    <div className="iterate-layout">
-      <h3 className="iterate-layout-title">5. cards with hook</h3>
-      <div className="iterate-posts layout-5">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-5">
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-            <span className="title">{post.title}</span>
-            <span className="date">{formatDate(post.publishDate)}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Layout 6: Hook as pull quote
-function Layout6({ posts }) {
-  return (
-    <div className="iterate-layout">
-      <h3 className="iterate-layout-title">6. hook as pull quote</h3>
-      <div className="iterate-posts layout-6">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-6">
-            <span className="hook">"{post.hook || 'what can we learn?'}"</span>
-            <span className="meta">
+      <h3 className="iterate-layout-title">1. classic timeline</h3>
+      <div className="iterate-posts timeline-1">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-1${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="line"></span>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
               <span className="title">{post.title}</span>
               <span className="date">{formatDate(post.publishDate)}</span>
             </span>
@@ -114,16 +35,20 @@ function Layout6({ posts }) {
   );
 }
 
-// Layout 7: Hook with arrow
-function Layout7({ posts }) {
+// Layout 2: Timeline with date on left
+function Layout2({ posts }) {
   return (
     <div className="iterate-layout">
-      <h3 className="iterate-layout-title">7. hook with arrow</h3>
-      <div className="iterate-posts layout-7">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-7">
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-            <span className="arrow">→</span>
+      <h3 className="iterate-layout-title">2. date left, content right</h3>
+      <div className="iterate-posts timeline-2">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-2${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="date">{formatDate(post.publishDate)}</span>
+            <span className="line"></span>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="title">{post.title}</span>
+            </span>
           </Link>
         ))}
       </div>
@@ -131,33 +56,16 @@ function Layout7({ posts }) {
   );
 }
 
-// Layout 8: Grid with hook overlay
-function Layout8({ posts }) {
-  return (
-    <div className="iterate-layout">
-      <h3 className="iterate-layout-title">8. two column hooks</h3>
-      <div className="iterate-posts layout-8">
-        {posts.map((post) => (
-          <Link key={post.slug} to={`/${post.slug}`} className="iterate-post-8">
-            <span className="hook">{post.hook || 'what can we learn?'}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Layout 9: Timeline with hook - vertical timeline with month breaks
-function Layout9({ posts }) {
+// Layout 3: Timeline with month breaks
+function Layout3({ posts }) {
   let lastMonth = null;
 
   return (
     <div className="iterate-layout">
-      <h3 className="iterate-layout-title">9. timeline with hook</h3>
-      <div className="iterate-posts layout-9">
+      <h3 className="iterate-layout-title">3. with month breaks</h3>
+      <div className="iterate-posts timeline-3">
         {posts.map((post, index) => {
-          const date = new Date(post.publishDate);
-          const monthYear = `${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`.toLowerCase();
+          const monthYear = getMonthYear(post.publishDate);
           const showMonthBreak = monthYear !== lastMonth;
           lastMonth = monthYear;
           const isLast = index === posts.length - 1;
@@ -169,7 +77,7 @@ function Layout9({ posts }) {
                   <span className="month-label">{monthYear}</span>
                 </div>
               )}
-              <Link to={`/${post.slug}`} className={`iterate-post-9${isLast ? ' last' : ''}`}>
+              <Link to={`/${post.slug}`} className={`timeline-post-3${isLast ? ' last' : ''}`}>
                 <span className="date">{formatDate(post.publishDate)}</span>
                 <span className="line"></span>
                 <span className="content">
@@ -180,6 +88,146 @@ function Layout9({ posts }) {
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+}
+
+// Layout 4: Alternating sides
+function Layout4({ posts }) {
+  return (
+    <div className="iterate-layout">
+      <h3 className="iterate-layout-title">4. alternating sides</h3>
+      <div className="iterate-posts timeline-4">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-4${index % 2 === 1 ? ' right' : ' left'}${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="title">{post.title}</span>
+            </span>
+            <span className="line"></span>
+            <span className="date">{formatDate(post.publishDate)}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Layout 5: Minimal line, large hook
+function Layout5({ posts }) {
+  return (
+    <div className="iterate-layout">
+      <h3 className="iterate-layout-title">5. minimal, large hook</h3>
+      <div className="iterate-posts timeline-5">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-5${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="line"></span>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="meta">
+                <span className="title">{post.title}</span>
+                <span className="date">{formatDate(post.publishDate)}</span>
+              </span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Layout 6: Bracketed timeline
+function Layout6({ posts }) {
+  return (
+    <div className="iterate-layout">
+      <h3 className="iterate-layout-title">6. bracketed entries</h3>
+      <div className="iterate-posts timeline-6">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-6${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="bracket">[</span>
+            <span className="line"></span>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="title">{post.title}</span>
+            </span>
+            <span className="bracket">]</span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Layout 7: Timeline with connecting arrows
+function Layout7({ posts }) {
+  return (
+    <div className="iterate-layout">
+      <h3 className="iterate-layout-title">7. arrow connectors</h3>
+      <div className="iterate-posts timeline-7">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-7${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="arrow-line"></span>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="title">{post.title}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Layout 8: Indented hierarchy
+function Layout8({ posts }) {
+  let lastMonth = null;
+
+  return (
+    <div className="iterate-layout">
+      <h3 className="iterate-layout-title">8. indented hierarchy</h3>
+      <div className="iterate-posts timeline-8">
+        {posts.map((post) => {
+          const monthYear = getMonthYear(post.publishDate);
+          const showMonthBreak = monthYear !== lastMonth;
+          lastMonth = monthYear;
+
+          return (
+            <div key={post.slug} className="timeline-item">
+              {showMonthBreak && (
+                <div className="month-header">{monthYear}</div>
+              )}
+              <Link to={`/${post.slug}`} className="timeline-post-8">
+                <span className="indent-line"></span>
+                <span className="content">
+                  <span className="hook">{post.hook || 'what can we learn?'}</span>
+                  <span className="title">{post.title}</span>
+                </span>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// Layout 9: Double line timeline
+function Layout9({ posts }) {
+  return (
+    <div className="iterate-layout">
+      <h3 className="iterate-layout-title">9. double rail</h3>
+      <div className="iterate-posts timeline-9">
+        {posts.map((post, index) => (
+          <Link key={post.slug} to={`/${post.slug}`} className={`timeline-post-9${index === posts.length - 1 ? ' last' : ''}`}>
+            <span className="rails"></span>
+            <span className="content">
+              <span className="hook">{post.hook || 'what can we learn?'}</span>
+              <span className="title">{post.title}</span>
+              <span className="date">{formatDate(post.publishDate)}</span>
+            </span>
+          </Link>
+        ))}
       </div>
     </div>
   );
@@ -213,13 +261,13 @@ export default function IteratePage() {
     <>
       <SEO
         title="Layout Iterations | Please Recompile"
-        description="Exploring different ways to display blog posts with hook questions"
+        description="Exploring vertical timeline layouts for blog posts"
       />
       <main className="iterate-page">
         <div className="container">
           <div className="iterate-header">
-            <h1>post listing iterations</h1>
-            <p>exploring the hook question field across 9 different layouts</p>
+            <h1>vertical timeline iterations</h1>
+            <p>9 variations on the vertical timeline theme</p>
           </div>
 
           <Layout1 posts={posts} />
