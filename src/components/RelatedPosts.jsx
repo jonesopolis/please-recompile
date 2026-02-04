@@ -25,12 +25,12 @@ export default function RelatedPosts({ currentSlug, tags }) {
     return (
       <section className="related-posts">
         <h2>Related</h2>
-        <div className="related-posts-timeline">
-          <div className="related-timeline-item skeleton">
+        <div className="related-posts-grid">
+          <div className="related-post-card skeleton">
             <div className="skeleton-line" style={{ width: '60px' }}></div>
             <div className="skeleton-line" style={{ width: '80%' }}></div>
           </div>
-          <div className="related-timeline-item skeleton">
+          <div className="related-post-card skeleton">
             <div className="skeleton-line" style={{ width: '60px' }}></div>
             <div className="skeleton-line" style={{ width: '80%' }}></div>
           </div>
@@ -46,15 +46,12 @@ export default function RelatedPosts({ currentSlug, tags }) {
   return (
     <section className="related-posts">
       <h2>Related</h2>
-      <div className="related-posts-timeline">
-        {posts.map((post, index) => (
-          <Link key={post.slug} to={`/${post.slug}`} className={`related-timeline-item${index === posts.length - 1 ? ' last' : ''}`}>
-            <span className="line"></span>
-            <span className="content">
-              <span className="date">{formatDate(post.publishDate)}</span>
-              <span className="hook">{post.hook || 'what can we learn?'}</span>
-              <span className="title">{post.title}</span>
-            </span>
+      <div className="related-posts-grid">
+        {posts.map((post) => (
+          <Link key={post.slug} to={`/${post.slug}`} className="related-post-card">
+            <span className="date">{formatDate(post.publishDate)}</span>
+            <span className="hook">{post.hook || 'what can we learn?'}</span>
+            <span className="title">{post.title}</span>
           </Link>
         ))}
       </div>

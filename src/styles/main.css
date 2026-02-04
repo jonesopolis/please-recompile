@@ -741,103 +741,59 @@ html.theme-transitioning .post-detail-header * {
     margin-bottom: 24px;
 }
 
-/* Timeline style for related posts */
-.related-posts-timeline {
+.related-posts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.related-post-card {
     display: flex;
     flex-direction: column;
-    padding-left: 24px;
-}
-
-.related-posts-timeline a {
+    gap: 4px;
+    padding: 20px;
+    border: 1px solid var(--border);
     text-decoration: none;
-    color: inherit;
-}
-
-.related-timeline-item {
-    display: grid;
-    grid-template-columns: 20px 1fr;
-    padding: 12px 0;
-    align-items: start;
-}
-
-.related-timeline-item .line {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.related-timeline-item .line::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: -24px;
-    width: 1px;
-    background: var(--border);
-    transform: translateX(-50%);
-}
-
-.related-timeline-item.last .line::before {
-    bottom: 8px;
-}
-
-.related-timeline-item .line::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--bg-primary);
-    border: 2px solid var(--border);
-    border-radius: 50%;
-    margin-top: 4px;
-    position: relative;
-    z-index: 1;
     transition: all 0.2s ease;
 }
 
-.related-timeline-item:hover .line::after {
+.related-post-card:hover {
     border-color: var(--accent);
-    background: var(--accent);
 }
 
-.related-timeline-item .content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding-left: 16px;
-    transition: transform 0.2s ease;
-}
-
-.related-timeline-item .date {
+.related-post-card .date {
     color: var(--text-secondary);
     font-size: 11px;
     transition: color 0.2s ease;
 }
 
-.related-timeline-item .hook {
+.related-post-card .hook {
     color: var(--text-secondary);
     font-size: 12px;
     transition: color 0.2s ease;
 }
 
-.related-timeline-item .title {
+.related-post-card .title {
     color: var(--text-primary);
     font-size: 15px;
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
-.related-timeline-item:hover .content {
-    transform: translateX(6px);
-}
-
-.related-timeline-item:hover .date,
-.related-timeline-item:hover .hook,
-.related-timeline-item:hover .title {
+.related-post-card:hover .date,
+.related-post-card:hover .hook,
+.related-post-card:hover .title {
     color: var(--accent);
 }
 
-.related-timeline-item.skeleton {
-    min-height: 60px;
+.related-post-card.skeleton {
+    min-height: 80px;
+}
+
+@media (max-width: 600px) {
+    .related-posts-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ==================== PAGE SECTIONS ==================== */
